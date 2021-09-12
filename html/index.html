@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 0;
+      }
+      thead {
+        background-color: #343434;
+        color: #fff;
+      }
+      .user-table {
+        margin-top: 50px;
+      }
+      .user-table td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="">
+      <table>
+        <tr>
+          <td>
+            <img src="imgs/login.png" alt="login img" width="120px" />
+          </td>
+          <td style="vertical-align: bottom">
+            <a href="https://bnet.detaysoft.com/">
+              https://bnet.detaysoft.com/
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Username:</td>
+          <td>
+            <input type="text" autocomplete="username" />
+          </td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td>
+            <input type="password" autocomplete="current-password" />
+          </td>
+        </tr>
+        <tr>
+          <td>Hobilerimiz</td>
+          <td>
+            <label for="muzik">
+              <input type="checkbox" id="muzik" /> Müzik
+            </label>
+            <br />
+            <label for="sinema">
+              <input type="checkbox" id="sinema" /> Sinema
+            </label>
+            <br />
+            <label for="tiyatro">
+              <input type="checkbox" id="tiyatro" /> Tiyatro
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>Adress:</td>
+          <td>
+            <textarea name="adress" id="adress" cols="40" rows="3"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Bölüm:</td>
+          <td>
+            <select name="bolum" id="bolum" multiple size="3">
+              <option value="Bilişim">Bilişim</option>
+              <option value="Bilişim">Muhasebe</option>
+              <option value="Bilişim">Pazarlama</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="reset">Sil</button>
+          </td>
+          <td>
+            <button type="submit">Gönder</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <table class="user-table">
+      <thead>
+        <tr>
+          <td>Adı</td>
+          <td>Soyadı</td>
+          <td>Telefon</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ahmet</td>
+          <td>Mehmet</td>
+          <td>05555555555</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

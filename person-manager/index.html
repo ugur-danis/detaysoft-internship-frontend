@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <table id="person-manager-table">
+      <thead>
+        <tr>
+          <th colspan="4" style="padding: 24px 0">
+            <h3>Kişi Ekle</h3>
+          </th>
+        </tr>
+        <tr>
+          <th>Ad</th>
+          <th>Soyad</th>
+          <th>Telefon</th>
+          <th>İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="name" id="name" autofocus/>
+          </td>
+          <td>
+            <input type="text" name="last-name" id="last-name"/>
+          </td>
+          <td>
+            <input type="tel" name="phone-number" id="phone-number" maxlength="11" />
+          </td>
+          <td>
+            <button id="btn-save">Kaydet</button>
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="4" style="padding: 24px 0">
+            <h3>Kişi Listesi</h3>
+          </th>
+          <tr>
+          <th>Ad</th>
+          <th>Soyad</th>
+          <th>Telefon</th>
+          <th>İşlemler</th>
+        </tr>
+        </tr>
+      </thead>
+      <tbody id="person-list">
+      </tbody>
+    </table>
+    <script src="main.js"></script>
+  </body>
+</html>

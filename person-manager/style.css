@@ -1,0 +1,73 @@
+*::after,
+*::before,
+* {
+  border: 0;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+button {
+  padding: 12px 24px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:focus {
+  outline: 1px solid #343a40;
+}
+
+input {
+  border: 1px solid black;
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+#person-manager-table {
+  border-collapse: collapse;
+}
+
+#person-manager-table th {
+  font-size: 1.1rem;
+}
+
+#person-manager-table td,
+#person-manager-table th {
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+
+#btn-save {
+  width: 100%;
+  background-color: #28a745;
+}
+
+.btn-edit {
+  background-color: #007bff;
+}
+
+.btn-del {
+  background-color: #dc3545;
+}
+
+#person-list tr:nth-child(even) {
+  background-color: #343a40;
+  color: #fff;
+}
