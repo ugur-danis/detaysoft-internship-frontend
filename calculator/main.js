@@ -27,9 +27,11 @@ class Calculator {
   }
 
   chooseOperation(operation) {
-    this.operation = operation;
+    if (this.currentOperand === "" && this.previousOperand !== "")
+      this.operation = operation;
     if (this.currentOperand === "") return;
     if (this.previousOperand !== "") this.calculate();
+    this.operation = operation;
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
