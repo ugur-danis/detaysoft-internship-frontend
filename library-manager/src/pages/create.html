@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../resources/bootstrap-5.1.1-dist/css/bootstrap.css"
+    />
+    <title>Library Manager</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-6 m-auto mt-5">
+        <h2 class="text-center mb-3">Add New Book</h2>
+        <form>
+          <div class="form row">
+            <div class="form-group col-md-6">
+              <label for="bookTitle">Title</label>
+              <input type="text" class="form-control" id="bookTitle" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="relaseYear">Relase Year</label>
+              <input
+                type="number"
+                class="form-control"
+                id="relaseYear"
+                placeholder="2021"
+              />
+            </div>
+          </div>
+          <div class="form row mt-3">
+            <div class="form-group col">
+              <label for="bookType">Book Type</label>
+              <select id="bookType" class="form-control" multiple></select>
+            </div>
+            <div class="form-group col">
+              <label for="author">Author</label>
+              <select id="author" class="form-control"></select>
+              <div class="row">
+                <button
+                  type="button"
+                  class="btn btn-primary mt-3 col me-1"
+                  id="saveBtn"
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger mt-3 col"
+                  id="cancelBtn"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../resources/bootstrap-5.1.1-dist/js/bootstrap.js"></script>
+    <script src="../js/library-manager.js"></script>
+    <script src="../js/create.js"></script>
+  </body>
+</html>
