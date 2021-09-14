@@ -12,7 +12,7 @@
    ┗ 📂resources > CSS, images, etc.
 
 ### My Project Folder Structure
-
+```
 📦src
 ┣ 📂js
 ┃ ┣ 📜create.js
@@ -25,3 +25,4 @@
 ┃ ┗ 📜update.html
 ┗ 📂resources
 ┃ ┣ 📂bootstrap-5.1.1-dist
+```
