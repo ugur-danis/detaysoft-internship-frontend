@@ -10,16 +10,15 @@ let _book;
 
 saveBtn.addEventListener("click", () => {
   const book = {
-    id: _book.id,
-    authorId: authorInput.value,
-    title: titleInput.value,
-    relaseYear: relaseYearInput.value,
-    bookTypes: Array.from(bookTypeInput.selectedOptions).map(({ value }) => {
+    BookId: _book.BookId,
+    AuthorId: authorInput.value,
+    BookTitle: titleInput.value,
+    BookRelaseYear: relaseYearInput.value,
+    /* bookTypes: Array.from(bookTypeInput.selectedOptions).map(({ value }) => {
       return parseInt(value);
-    }),
+    }), */
   };
-  libraryManager.update(book);
-  goIndexPage();
+  libraryManager.update(book).then(() => goIndexPage());
 });
 
 cancelBtn.addEventListener("click", () => {
@@ -27,13 +26,13 @@ cancelBtn.addEventListener("click", () => {
 });
 
 function setInputValues() {
-  titleInput.value = _book.title;
-  relaseYearInput.value = _book.relaseYear;
-  authorInput.value = _book.author.id;
-  bookTypeInput.options[0].selected = false;
+  titleInput.value = _book.BookTitle;
+  relaseYearInput.value = _book.BookRelaseYear;
+  authorInput.value = _book.Author.AuthorId;
+  /*  bookTypeInput.options[0].selected = false;
   _book.bookTypes.forEach((type) => {
     bookTypeInput.options[--type.typeId].selected = true;
-  });
+  }) */
 }
 
 function goIndexPage() {
@@ -41,7 +40,7 @@ function goIndexPage() {
     window.location.pathname.split("/").slice(0, -1).join("/") + "/";
 }
 
-async function setBookTypesSelectElement() {
+/* async function setBookTypesSelectElement() {
   const types = await libraryManager.getBookTypes();
   types.forEach((type) => {
     const option = document.createElement("option");
@@ -51,15 +50,15 @@ async function setBookTypesSelectElement() {
   });
   bookTypeInput.firstChild.selected = true;
   bookTypeInput.size = types.length;
-}
+} */
 
 async function setAuthorSelectElement() {
   const authors = await libraryManager.getAuthors();
 
   authors.forEach((author) => {
     const option = document.createElement("option");
-    option.value = author.id;
-    option.innerHTML = author.name + " " + author.lastName;
+    option.value = author.AuthorId;
+    option.innerHTML = author.AuthorName + " " + author.AuthorLastName;
     authorInput.append(option);
   });
   authorInput.firstChild.selected = true;
@@ -70,10 +69,10 @@ window.addEventListener("load", () => {
   window.localStorage.clear();
   if (_book == null) goIndexPage();
   else {
-    setBookTypesSelectElement().then(() => {
-      setAuthorSelectElement().then(() => {
-        setInputValues();
-      });
+    //setBookTypesSelectElement().then(() => {
+    setAuthorSelectElement().then(() => {
+      setInputValues();
     });
+    //});
   }
 });

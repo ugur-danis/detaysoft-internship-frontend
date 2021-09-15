@@ -9,15 +9,14 @@ const cancelBtn = document.getElementById("cancelBtn");
 
 saveBtn.addEventListener("click", () => {
   const book = {
-    authorId: authorInput.value,
-    title: titleInput.value,
-    relaseYear: relaseYearInput.value,
-    bookTypes: Array.from(bookTypeInput.selectedOptions).map(({ value }) => {
+    AuthorId: authorInput.value,
+    BookTitle: titleInput.value,
+    BookRelaseYear: relaseYearInput.value,
+    /*  bookTypes: Array.from(bookTypeInput.selectedOptions).map(({ value }) => {
       return parseInt(value);
-    }),
+    }), */
   };
-  libraryManager.add(book);
-  goIndexPage();
+  libraryManager.add(book).then(() => goIndexPage());
 });
 
 cancelBtn.addEventListener("click", () => {
@@ -29,7 +28,7 @@ function goIndexPage() {
     window.location.pathname.split("/").slice(0, -1).join("/") + "/";
 }
 
-async function setBookTypesSelectElement() {
+/* async function setBookTypesSelectElement() {
   const types = await libraryManager.getBookTypes();
   types.forEach((type) => {
     const option = document.createElement("option");
@@ -39,19 +38,19 @@ async function setBookTypesSelectElement() {
   });
   bookTypeInput.firstChild.selected = true;
   bookTypeInput.size = types.length;
-}
+} */
 
 async function setAuthorSelectElement() {
   const authors = await libraryManager.getAuthors();
 
   authors.forEach((author) => {
     const option = document.createElement("option");
-    option.value = author.id;
-    option.innerHTML = author.name + " " + author.lastName;
+    option.value = author.AuthorId;
+    option.innerHTML = author.AuthorName + " " + author.AuthorLastName;
     authorInput.append(option);
   });
   authorInput.firstChild.selected = true;
 }
 
-setBookTypesSelectElement();
+// setBookTypesSelectElement();
 setAuthorSelectElement();

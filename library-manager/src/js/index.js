@@ -6,6 +6,21 @@ async function getBookList() {
   const bookList = await libraryManager.getAll();
   let i = 1;
 
+  if (bookList == null) return;
+
+  const addNewBookTr = document.createElement("tr");
+  const addNewBookTd = document.createElement("td");
+  addNewBookTd.setAttribute("colspan", "7");
+  addNewBookTd.classList = "text-center";
+
+  const addnewBookA = document.createElement("a");
+  addnewBookA.href = "./create.html";
+  addnewBookA.className = "link-info";
+  addnewBookA.innerHTML = "Add New Book";
+
+  addNewBookTd.append(addnewBookA);
+  addNewBookTr.append(addNewBookTd);
+  bookListElement.append(addNewBookTr);
   bookList.forEach((book) => {
     const newTr = document.createElement("tr");
     const numberTd = document.createElement("td");
@@ -14,23 +29,23 @@ async function getBookList() {
     newTr.append(numberTd);
 
     const nameTd = document.createElement("td");
-    nameTd.innerHTML = book.author.name;
+    nameTd.innerHTML = book.Author.AuthorName;
     newTr.append(nameTd);
 
     const lastNameTd = document.createElement("td");
-    lastNameTd.innerHTML = book.author.lastName;
+    lastNameTd.innerHTML = book.Author.AuthorLastName;
     newTr.append(lastNameTd);
 
     const titleTd = document.createElement("td");
-    titleTd.innerHTML = book.title;
+    titleTd.innerHTML = book.BookTitle;
     newTr.append(titleTd);
 
-    const typeTd = document.createElement("td");
-    typeTd.innerHTML += book.bookTypes.map((type) => type.typeName);
-    newTr.append(typeTd);
+    /* const typeTd = document.createElement("td");
+    typeTd.innerHTML += book.BookTypes.map((type) => type.typeName);
+    newTr.append(typeTd); */
 
     const relaseYearTd = document.createElement("td");
-    relaseYearTd.innerHTML = book.relaseYear;
+    relaseYearTd.innerHTML = book.BookRelaseYear;
     newTr.append(relaseYearTd);
 
     const actionTd = document.createElement("td");
@@ -53,46 +68,10 @@ async function getBookList() {
     bookListElement.append(newTr);
     i++;
   });
-
-  const addNewBookTr = document.createElement("tr");
-  const addNewBookTd = document.createElement("td");
-  addNewBookTd.setAttribute("colspan", "7");
-  addNewBookTd.classList = "text-center";
-
-  const addnewBookA = document.createElement("a");
-  addnewBookA.href = "./create.html";
-  addnewBookA.className = "link-info";
-  addnewBookA.innerHTML = "Add New Book";
-
-  addNewBookTd.append(addnewBookA);
-  addNewBookTr.append(addNewBookTd);
-  bookListElement.append(addNewBookTr);
-}
-
-async function saveBtn() {
-  const newBook = {
-    id: 0,
-    author: {
-      id: 0,
-      name: "",
-      lastName: "",
-    },
-    title: "",
-    relaseYear: "",
-    bookTypes: [
-      {
-        typeId: 0,
-        typeName: "",
-      },
-    ],
-  };
-  await libraryManager.add(book);
-  await getBookList();
 }
 
 async function deleteBtn(book) {
-  await libraryManager.delete(book);
-  await getBookList();
+  await libraryManager.delete(book).then(() => getBookList());
 }
 
 function editBtn(book) {
