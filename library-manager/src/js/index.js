@@ -37,14 +37,14 @@ async function getBookList() {
 
     const actionTd = document.createElement("td");
     const editButton = document.createElement("button");
-    editButton.className = "btn btn-primary me-2";
+    editButton.className = "btn btn-primary me-5 w-25";
     editButton.innerHTML = "Edit";
     editButton.onclick = () => {
       editBtn(book);
     };
 
     const deleteButton = document.createElement("button");
-    deleteButton.className = "btn btn-danger";
+    deleteButton.className = "btn btn-danger w-25";
     deleteButton.innerHTML = "Delete";
     deleteButton.onclick = () => {
       deleteBtn(book);
