@@ -8,19 +8,6 @@ async function getBookList() {
 
   if (bookList == null) return;
 
-  const addNewBookTr = document.createElement("tr");
-  const addNewBookTd = document.createElement("td");
-  addNewBookTd.setAttribute("colspan", "7");
-  addNewBookTd.classList = "text-center";
-
-  const addnewBookA = document.createElement("a");
-  addnewBookA.href = "./create.html";
-  addnewBookA.className = "link-info";
-  addnewBookA.innerHTML = "Add New Book";
-
-  addNewBookTd.append(addnewBookA);
-  addNewBookTr.append(addNewBookTd);
-  bookListElement.append(addNewBookTr);
   bookList.forEach((book) => {
     const newTr = document.createElement("tr");
     const numberTd = document.createElement("td");
